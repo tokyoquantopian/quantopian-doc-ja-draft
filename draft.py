@@ -8,6 +8,7 @@ from conf import branches
 source_repo = "https://github.com/tokyoquantopian/quantopian-doc-ja.git"
 home_dir = Path.cwd()
 repo_dir = Path("quantopian-doc-ja")
+replace_index_rst = home_dir / "replace_source" / "index.rst"
 makefile = repo_dir / "Makefile"
 makefile_prev = home_dir / "Makefile"
 source_dir = repo_dir / "source"
@@ -37,3 +38,4 @@ if source_dir_prev.exists():
 shutil.move(str(makefile.resolve()), str(makefile_prev.resolve()))
 shutil.move(str(source_dir.resolve()), str(source_dir_prev.resolve()))
 shutil.rmtree(str(repo_dir.resolve()))
+shutil.copy(str(replace_index_rst.resolve()), str((source_dir_prev).resolve()))
