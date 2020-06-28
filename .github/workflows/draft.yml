@@ -41,6 +41,7 @@ jobs:
         mv ${REPOSITORY_DIR}/Makefile .
         mv ${REPOSITORY_DIR}/source .
         rm -rf ${REPOSITORY_DIR}
+        cp replace_source/index.rst source/index.rst
       env:
         SOURCE_REPOSITORY: https://github.com/tokyoquantopian/quantopian-doc-ja.git
         REPOSITORY_DIR: quantopian-doc-ja
