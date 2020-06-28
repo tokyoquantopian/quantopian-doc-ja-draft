@@ -6,8 +6,44 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run a Python script
-      run: python3 draft.py
+    - name: merge draft
+      run: |
+        declare -A branches
+        branches["issue_8"]="source/tutorial"
+        branches["issue_14"]="source/tutorial"
+        branches["tutorial3_alphalens_lesson1_to_5"]="source/tutorial"
+        for branch in ${branches[@]} 
+        do 
+          echo $branch
+        done
+        echo ${SOURCE_REPOSITORY}
+        rm -rf ${REPOSITORY_DIR}
+        git clone ${SOURCE_REPOSITORY}
+        cd ${REPOSITORY_DIR}
+        for branch in "${!branches[@]}"
+        do
+          echo "fetch origin ${branch}"
+          git fetch origin ${branch}
+        done
+        for branch in "${!branches[@]}"
+        do
+          echo "git checkout origin ${branch}"
+          git checkout ${branch}
+        done
+        git checkout master
+        for branch in "${!branches[@]}"
+        do
+          echo "git checkout ${branch} ${branches[${branch}]}"
+          git checkout ${branch} ${branches[${branch}]}
+        done
+        cd ..
+        rm -rf source
+        mv ${REPOSITORY_DIR}/Makefile .
+        mv ${REPOSITORY_DIR}/source .
+        rm -rf ${REPOSITORY_DIR}
+      env:
+        SOURCE_REPOSITORY: https://github.com/tokyoquantopian/quantopian-doc-ja.git
+        REPOSITORY_DIR: quantopian-doc-ja
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
