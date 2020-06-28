@@ -94,7 +94,7 @@
 
 
 
-Visualizing an alpha factor's decay rate
+アルファファクターの減衰率の可視化
 ------------------------------------------
 
 多くのファンダメンタルデータは、年4回の四半期レポートでしか取得できません。頻度が低いのでなるべくたくさんのファンダメンタルデータを ``get_clean_factor_and_forward_returns()`` に渡したほうが将来を見通すためには有用です。
@@ -122,6 +122,7 @@ Visualizing an alpha factor's decay rate
 
 
 この例は約一ヵ月のチャートですが、1年先のICを計算するとチャートはどのような線を描くでしょうか。やってみましょう。
+
 
 .. code:: python
    :caption: base_code
@@ -181,8 +182,6 @@ MaxLossExceededErrorを対処
 チャートから私達のアルファファクターは、評価後すぐに減衰していきますが、そのあと6ヵ月もかからない間に強く伸びていくことがわかりました。これは面白い発見ですね。
 
 .. image:: notebook_files/alphalens_l4_screenshot3.png
-
-Note: MaxLossExceededError has two possible causes; forward returns computation and binning. We showed you how to fix forward returns computation here because it is much more common. You can read more about what binning is in the API docs.
 
 *メモ*： ``MaxLossExceededError`` の発生には以下2つの理由が考えられます。1つは将来の収益に関する計算時のエラー、もう1つはビン分割時のエラーです。 ここでは出現しやすい1つめに関してのみ説明しました。2つめのビン分割に関しては、API doc を確認して下さい。
 
