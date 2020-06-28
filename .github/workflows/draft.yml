@@ -9,6 +9,11 @@ jobs:
     - name: merge draft
       run: |
         declare -A branches
+        # keyにブランチ名, valueに対象のファイル/ディレクトリのpath
+        #
+        # 例: issue_8ブランチでsource/tutorialディレクトリの作業をしている場合
+        # branches["issue_8"]="source/tutorial"
+        #
         branches["issue_8"]="source/tutorial"
         branches["issue_14"]="source/tutorial"
         branches["tutorial3_alphalens_lesson1_to_5"]="source/tutorial"
