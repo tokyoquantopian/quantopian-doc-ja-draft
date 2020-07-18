@@ -17,6 +17,7 @@ jobs:
         branches["issue_8"]="source/tutorial"
         branches["issue_14"]="source/tutorial"
         branches["tutorial3_alphalens_lesson1_to_5"]="source/tutorial"
+        branches["glossary"]="source/index.rst"
         branches["glossary"]="source/appendix"
         for branch in ${branches[@]} 
         do 
