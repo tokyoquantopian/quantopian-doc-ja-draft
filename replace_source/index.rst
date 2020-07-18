@@ -27,6 +27,7 @@ Quantopian 日本語翻訳(Draft)
 
    tutorial/index
    lectures/index
+   appendix/index
 
 
 Indices and tables
