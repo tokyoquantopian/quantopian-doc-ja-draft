@@ -17,6 +17,7 @@ jobs:
         branches["issue_8"]="source/tutorial"
         branches["issue_14"]="source/tutorial"
         branches["tutorial3_alphalens_lesson1_to_5"]="source/tutorial"
+        branched["tutorial1_getting_started_lesson1"]="source/tutorial"
         for branch in ${branches[@]} 
         do 
           echo $branch
